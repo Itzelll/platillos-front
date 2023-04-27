@@ -5,7 +5,7 @@ const Link = (props) => {
   return (
     <div>
       <div>
-        {link.description} ({link.url})
+        {link.nombre} ({link.tipoPlatillo}) ({link.calorias}) ({link.proteinas}) ({link.paisOrigen}) ({link.ingredientes}) ({link.saludable}) ({link.tiempoCoccion}) ({link.dificultadPreparacion}) ({link.utensiliosRequeridos})
       </div>
     </div>
   );
