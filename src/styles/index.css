@@ -74,3 +74,11 @@ input {
 .content-table tbody tr:last-of-type { 
   border-bottom: 2px solid #009879; 
 }
+
+img {
+  height: 150px;
+  width: 150px;
+  display: block;
+  margin: 0px auto;
+  border-radius: 80px;
+}

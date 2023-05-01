@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from './Link';
 import { useQuery, gql } from '@apollo/client';
+import logop from "../logop.png";
 
 const FEED_QUERY = gql`
   query {
@@ -48,6 +49,7 @@ const LinkList = () => {
 
   return (
     <div>
+      <img src={logop}></img>
       <h2 align="center">Informacion de los Platillos</h2>
       <br></br>
       {data && (
