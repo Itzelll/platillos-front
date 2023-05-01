@@ -13,7 +13,9 @@ input {
 }
 
 .orange {
-  background-color: #8400ff;
+  background-color: #b76aff;
+  margin: 15px 0; 
+  font-size: 1.5em; 
 }
 
 .background-gray {
@@ -52,7 +54,7 @@ input {
 }
 
 .content-table thead tr { 
-  background-color: #612258; 
+  background-color: #5e5074; 
   color: #ffffff; 
   text-align: middle; 
 }

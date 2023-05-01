@@ -48,6 +48,8 @@ const LinkList = () => {
 
   return (
     <div>
+      <h2 align="center">Informacion de los Platillos</h2>
+      <br></br>
       {data && (
         <>
           {data.comidas.map((link) => (
