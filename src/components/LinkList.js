@@ -49,9 +49,11 @@ const LinkList = () => {
 
   return (
     <div>
-      <img src={logop}></img>
+      <div>
+      <img src={logop} alt='logo'></img> 
       <h2 align="center">Informacion de los Platillos</h2>
       <br></br>
+      </div>
       {data && (
         <>
           {data.comidas.map((link) => (
