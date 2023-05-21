@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ServiceDavinci003 from "../services/service.davinci.003";
+import ServiceDavinci003 from "../services/service.davinci-003";
 
 export default function Textdavinci003() {
   const [animalInput, setAnimalInput] = useState("");
@@ -38,7 +38,6 @@ export default function Textdavinci003() {
         <link rel="icon" href="/dog.png" />
 
       <main>
-        <img src="/dog.png" />
         <h3>Name my pet</h3>
         <form onSubmit={onSubmit}>
           <input

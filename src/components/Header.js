@@ -38,14 +38,14 @@ const Header = () => {
             <Link
               to="/create"
               className="ml1 no-underline black"
-            >
+            >|
               submit
             </Link>
 
             <Link
               to="/davinchi"
               className="ml1 no-underline black"
-            >
+            >|
               davinchi
             </Link>
             
