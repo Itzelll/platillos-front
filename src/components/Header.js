@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AUTH_TOKEN } from '../constants';
+import { useTranslation } from 'react-i18next';
+import LanguageSelect from './LanguageSelect';
 
 const Header = () => {
 
   const navigate = useNavigate();
   const authToken = localStorage.getItem(AUTH_TOKEN);
+  const { t } = useTranslation();
 
   return (
     <div className="flex pa1 justify-between nowrap orange">
@@ -17,12 +20,12 @@ const Header = () => {
           Home
         </Link>
         <div className="ml1">|</div>
-        <Link
+        {/* <Link
           to="/create"
           className="ml1 no-underline black"
         >
           New
-        </Link>
+        </Link> */}
 
 
         <div className="ml1">|</div>
@@ -39,7 +42,7 @@ const Header = () => {
               to="/create"
               className="ml1 no-underline black"
             >|
-              submit
+              New
             </Link>
 
             <Link
@@ -48,10 +51,28 @@ const Header = () => {
             >|
               davinchi
             </Link>
-            
+            <Link
+              to="/images"
+              className="ml1 no-underline black"
+            >|
+              images
+            </Link>
+
           </div>
         )}
       </div>
+
+      <div className="flex flex-fixed">
+        <div className="ml1 pointer black">
+          {t('select_language')}
+        </div>
+        <div className="ml1 pointer black"> : </div>
+        <div>
+          <LanguageSelect className="ml1 pointer black" />|
+          Idioma:
+        </div>
+      </div>
+
       <div className="flex flex-fixed">
         {authToken ? (
           <div

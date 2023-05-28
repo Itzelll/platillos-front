@@ -84,13 +84,15 @@ class ServiceDavinci003 {
   generatePrompt(animal) {
     const capitalizedAnimal =
       animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-    return `Suggest three names for an animal that is a superhero.
+    return `Suggest three ingredients for platillos.
     
-        Animal: Cat
-        Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-        Animal: Dog
-        Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-        Animal: ${capitalizedAnimal}
+        Platillos: sopa
+        Names: Pasta, Caldo, Pollo
+        Platillos: tacos
+        Names: Tortilla, Carne, Salsa
+        Platillos: carlota
+        Names: Limon, Dulce, Galleta
+        Platillos: ${capitalizedAnimal}
         Names:`;
   }
 }

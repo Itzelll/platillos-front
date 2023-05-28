@@ -50,7 +50,7 @@ const LinkList = () => {
   return (
     <div>
       <div>
-      <img src={logop} alt='logo'></img> 
+      <img src={logop} alt='logo' className='img-logo'></img> 
       <h2 align="center">Informacion de los Platillos</h2>
       <br></br>
       </div>

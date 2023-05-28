@@ -1,21 +1,16 @@
 import { useState } from "react";
-import ServiceDavinci003 from "../services/service.davinci-003";
+import CreateImages from "../services/service.create-image";
 
-export default function Textdavinci003() {
-  const [animalInput, setAnimalInput] = useState("");
-  const [result, setResult] = useState();
+export default function ImageGeneration() {
+    const [animalInput, setAnimalInput] = useState("");
+    const [result, setResult] = useState();
+    const [numberOfImages, setNumberOfImages] = useState(1)
 
   async function onSubmit(event) {
     event.preventDefault();
     try {
-      const response = await ServiceDavinci003.getDaVinci({ animal: animalInput });
-      /*const response = await fetch("/text-davinci-003/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ animal: animalInput }),
-      });*/
+      const response = await CreateImages.getImage({ animal: animalInput , n: numberOfImages});
+
 
       const data = await response;
       console.log(response);
@@ -32,12 +27,13 @@ export default function Textdavinci003() {
     }
   }
 
-  return (
-    <div>
+    return (
+        <div>
         <title>OpenAI Quickstart</title>
         <link rel="icon" href="/dog.png" />
 
       <main>
+        <img src="" alt=""/>
         <h3>Nombra un platillo</h3>
         <form onSubmit={onSubmit}>
           <input
@@ -47,11 +43,21 @@ export default function Textdavinci003() {
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input
+            type="number"
+            name="number"
+            placeholder="Enter a number de images"
+            value={numberOfImages}
+            onChange={(e) => setNumberOfImages(e.target.value)}
+          />
+          <input type="submit" value="Generate images" />
         </form>
         <div>
-          Ingredients:
-          {result}</div>
+          {result && result.map((url) => (
+            <img src={url} key={url} alt="Imagen" className="border-img"/>
+          ))}
+        </div>
+        {/* <div><img src={result} alt=""></img> </div> */}
       </main>
     </div>
   );
