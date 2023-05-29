@@ -20,12 +20,12 @@ const Header = () => {
           Home
         </Link>
         <div className="ml1">|</div>
-        {/* <Link
+        <Link
           to="/create"
           className="ml1 no-underline black"
         >
           New
-        </Link> */}
+        </Link>
 
 
         <div className="ml1">|</div>

@@ -15,7 +15,9 @@ const LanguageSelect = () => {
   const [menuAnchor, setMenuAnchor] = React.useState(null);
 
   React.useEffect(() => {
-     document.body.dir = languageMap[selected].dir;
+    if(selected && languageMap[selected] && languageMap[selected].dir){
+      document.body.dir = languageMap[selected].dir;
+    } 
   }, [menuAnchor, selected]);
 
   function changeLang(value) {
