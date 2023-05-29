@@ -6,16 +6,16 @@ import { Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Textdavinci003 from './text-davinci-003';
 import ImageGeneration from './create-image'
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 
 function App() {
 
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   return (
     <div className="center w85">
       <Header />
-      {t("hello_welcome_to_react")}
+      {/* {t("hello_welcome_to_react")} */}
       <div className="ph3 pv1 background-gray">
         <Routes>
           <Route path="/" element={<LinkList />} />

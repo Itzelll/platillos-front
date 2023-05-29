@@ -14,17 +14,17 @@ const Header = () => {
     <div className="flex pa1 justify-between nowrap orange">
       <div className="flex flex-fixed black">
         <Link to="/" className="no-underline black">
-          <div className="fw7 mr1">Platillos para preparar   |</div>
+          <div className="fw7 mr1"> {t("title")} |</div>
         </Link>
         <Link to="/" className="ml1 no-underline black">
-          Home
+          {t("home")}
         </Link>
         <div className="ml1">|</div>
         <Link
           to="/create"
           className="ml1 no-underline black"
         >
-          New
+          {t("new")}
         </Link>
 
 
@@ -33,7 +33,7 @@ const Header = () => {
           to="/search"
           className="ml1 no-underline black"
         >
-          search
+          {t("search")}
         </Link>
         {authToken && (
           <div className="flex">
@@ -41,8 +41,8 @@ const Header = () => {
             <Link
               to="/create"
               className="ml1 no-underline black"
-            >|
-              New
+            >
+              {t("new")}
             </Link>
 
             <Link
@@ -68,8 +68,7 @@ const Header = () => {
         </div>
         <div className="ml1 pointer black"> : </div>
         <div>
-          <LanguageSelect className="ml1 pointer black" />|
-          Idioma:
+          <LanguageSelect className="ml1 pointer black" />
         </div>
       </div>
 
@@ -82,14 +81,14 @@ const Header = () => {
               navigate(`/`);
             }}
           >
-            logout
+            Logout
           </div>
         ) : (
           <Link
             to="/login"
             className="ml1 no-underline black"
           >
-            login
+            Login
           </Link>
         )}
 

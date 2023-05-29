@@ -2,6 +2,22 @@
     "select_language": "Selecciona el idioma",
     "hello_welcome_to_react": "Hola, Bienvenido a React",
     "this_is_an_example": "Esto es un ejemplo",
-    "please_enter_name": "Por favor introduce tu nombre"
+    "please_enter_name": "Por favor introduce tu nombre",
+    "home": "Inicio",
+    "new": "Nuevo",
+    "search": "Buscar",
+    "title": "Platillos para preparar",
+    "info": "Informacion de los Platillos",
+    "nombre": "Nombre",
+    "tipo": "Tipo platillo",
+    "calorias": "Calorias",
+    "proteinas": "Proteinas",
+    "pais": "Pais de origen",
+    "ingredientes": "Ingredientes",
+    "saludable": "Saludable",
+    "time": "Tiempo coccion",
+    "dificultad": "Dificultad preparacion",
+    "utensilios": "Utensilios requeridos"
+
    }
    
