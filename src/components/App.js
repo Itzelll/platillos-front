@@ -8,6 +8,8 @@ import Textdavinci003 from './text-davinci-003';
 import OpenAI from './OpenAI';
 import ImageGeneration from './create-image'
 import Servicios from './servicios';
+import Search  from './Search';
+import ConsultLogs from "./ConsultLogs"
 // import { useTranslation } from 'react-i18next';
 
 function App() {
@@ -26,10 +28,12 @@ function App() {
             element={<CreateLink />}
           />
           <Route path="/login" element={<Login />} />
-          <Route path="/davinchi" element={<Textdavinci003 />} />
+          <Route path="/davinchi" element={<Textdavinci003 />} />          
+          <Route path="/search" element={<Search />} />
           <Route path="/images" element={<ImageGeneration />} />
           <Route path="/openai" element={<OpenAI />} />
           <Route path="/servicios" element={<Servicios />} />
+          <Route path="/logs" element={<ConsultLogs />} />
         </Routes>
       </div>
     </div>
