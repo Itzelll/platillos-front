@@ -17,7 +17,30 @@
     "saludable": "Saludable",
     "time": "Tiempo coccion",
     "dificultad": "Dificultad preparacion",
-    "utensilios": "Utensilios requeridos"
+    "utensilios": "Utensilios requeridos",
+    "servicios": "Openai",
+    "gen1": "Generador de imagenes",
+    "gen2": "Generador de nombres",
+    "gen3": "Generador de recetas",
+    "gen4": "Traductor de comidas",
+    "gen5": "Reviews de restaurantes",
+    "gen6": "Clasificaciones",
+    "h1": "Ingredientes de un platillo",
+    "h2": "Imagenes de platillos",
+    "h3": "Creador de recetas",
+    "h4": "Traductor de platillos",
+    "h5": "Review de restaurantes",
+    "h6": "Tipo de clasificaciones",
+    "placeholder": "Numero de imagenes",
+    "placeholder1": "Agrega un platillo",
+    "placeholder2": "Agrega ingredientes",
+    "placeholder3": "Agrega unas notas",
+    "generate": "Generar",
+    "text1": "Ingredientes",
+    "text3": "Receta",
+    "text4": "Traduccion",
+    "text5": "Reseñas",
+    "text6": "Clasificacion"
 
    }
    
