@@ -2,6 +2,7 @@ import React from 'react';
 import Link from './Link';
 import { useQuery, gql } from '@apollo/client';
 import logop from "../logop.png";
+import { useTranslation } from 'react-i18next';
 
 const FEED_QUERY = gql`
   query {
@@ -23,35 +24,13 @@ const FEED_QUERY = gql`
 
 const LinkList = () => {
   const { data } = useQuery(FEED_QUERY);
-  /*const linksToRender = [
-    {
-      id: 'link-id-1',
-      description:
-        'Prisma gives you a powerful database toolkit 😎',
-      url: 'https://prisma.io'
-    },
-    {
-      id: 'link-id-2',
-      description: 'The best GraphQL client',
-      url: 'https://www.apollographql.com/docs/react/'
-    },
-    {
-        id: 'link-id-3',
-        description: 'Los mejores platillos que podras encontrar!!!',
-        url: 'https://itzelll-itzelll.cloud.okteto.net/graphql/'
-    },
-    {
-        id: 'link-id-4',
-        description: 'Aprende a implementar con Graphql React-Apollo',
-        url: 'https://www.howtographql.com/react-apollo/2-queries-loading-links/'
-    }
-  ];*/
+  const { t } = useTranslation();
 
   return (
     <div>
       <div>
-      <img src={logop} alt='logo'></img> 
-      <h2 align="center">Informacion de los Platillos</h2>
+      <img src={logop} alt='logo' className='img-logo'></img> 
+      <h2 align="center"> {t("info")} </h2>
       <br></br>
       </div>
       {data && (
