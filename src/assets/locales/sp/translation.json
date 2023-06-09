@@ -40,7 +40,14 @@
     "text3": "Receta",
     "text4": "Traduccion",
     "text5": "Reseñas",
-    "text6": "Clasificacion"
+    "text6": "Clasificacion",
+    "look_for_actors": "Buscar platillos",
+    "movie_name_actors": "Nombre de platillos",
+    "actors_of_movie": "Actores de la Película",
+    "contact_information": "Información de contacto",
+    "address": "Dirección",
+    "phone": "Teléfono",
+    "email": "Correo electrónico"
 
    }
    

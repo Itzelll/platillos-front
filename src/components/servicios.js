@@ -6,9 +6,22 @@ import Traductor from "../services/service.traductor"
 import Restaurant from "../services/service.restaurant"
 import Clasification from "../services/service.clasification"
 import { useTranslation } from 'react-i18next';
+import { useQuery, gql } from "@apollo/client";
+import SavePrompt from "./SavePrompt";
+
+const FEED_QUERY = gql`
+    query{
+        me {
+            username
+        }
+    }
+`;
 
 export default function Servicios() {
     const { t } = useTranslation();
+    const { data: { me } = {} } = useQuery(FEED_QUERY);
+    const user = me?.username;
+
     const [selectedService, setSelectedService] = useState(null);
 
     const [animalInputt, setAnimalInputt] = useState("");
@@ -42,7 +55,7 @@ export default function Servicios() {
             }
             console.log("response", response);
             setResulti(data.result);
-            setAnimalInputi("");
+            //setAnimalInputi("");
         } catch (error) {
             // Consider implementing your own error handling logic here
             console.error(error);
@@ -62,7 +75,7 @@ export default function Servicios() {
             }
             console.log("response", response);
             setResultt(data.result);
-            setAnimalInputt("");
+            //setAnimalInputt("");
         } catch (error) {
             // Consider implementing your own error handling logic here
             console.error(error);
@@ -82,7 +95,7 @@ export default function Servicios() {
             }
             console.log("response", response);
             setResult3(data.result);
-            setAnimalInput3("");
+            //setAnimalInput3("");
         } catch (error) {
             // Consider implementing your own error handling logic here
             console.error(error);
@@ -102,7 +115,7 @@ export default function Servicios() {
             }
             console.log("response", response);
             setResult4(data.result);
-            setAnimalInput4("");
+            //setAnimalInput4("");
         } catch (error) {
             // Consider implementing your own error handling logic here
             console.error(error);
@@ -122,7 +135,7 @@ export default function Servicios() {
             }
             console.log("response", response);
             setResult5(data.result);
-            setAnimalInput5("");
+            //setAnimalInput5("");
         } catch (error) {
             // Consider implementing your own error handling logic here
             console.error(error);
@@ -142,7 +155,7 @@ export default function Servicios() {
             }
             console.log("response", response);
             setResult6(data.result);
-            setAnimalInput6("");
+            //setAnimalInput6("");
         } catch (error) {
             // Consider implementing your own error handling logic here
             console.error(error);
@@ -151,7 +164,7 @@ export default function Servicios() {
     };
 
     return (
-        <div>            
+        <div>
             <button className="boton-ia" onClick={() => setSelectedService("text")}>{t("gen2")}</button>
             <button className="boton-ia" onClick={() => setSelectedService("image")}>{t("gen1")}</button>
             <button className="boton-ia" onClick={() => setSelectedService("recipe")}>{t("gen3")}</button>
@@ -171,11 +184,20 @@ export default function Servicios() {
                                 value={animalInputt}
                                 onChange={(e) => setAnimalInputt(e.target.value)}
                             />
-                            <input type="submit" value={t("gen1")} />
+                            <input type="submit" value={t("gen2")} />
                         </form>
                         <div>
                             {t("text1")}:
-                            {resultt}</div>
+                            {resultt}
+                        </div>
+                        {user && (
+                            <SavePrompt
+                                user={user}
+                                model="texto"
+                                prompt={animalInputt}
+                                result={resultt}
+                            />
+                        )}
                     </main>
                 </div>
             )}
@@ -200,7 +222,7 @@ export default function Servicios() {
                                 value={numberOfImages}
                                 onChange={(e) => setNumberOfImages(e.target.value)}
                             />
-                            <input type="submit" value={t("gen2")}  />
+                            <input type="submit" value={t("gen1")} />
                         </form>
                         <div>
                             {resulti && resulti.map((url) => (
@@ -212,7 +234,7 @@ export default function Servicios() {
             )}
 
             {selectedService === "recipe" && (
-                <div>                    
+                <div>
                     <main>
                         <h3>{t("h3")}</h3>
                         <form onSubmit={onSubmitrecipe}>
@@ -223,17 +245,25 @@ export default function Servicios() {
                                 value={animalInput3}
                                 onChange={(e) => setAnimalInput3(e.target.value)}
                             />
-                            <input type="submit" value={t("gen3")}  />
+                            <input type="submit" value={t("gen3")} />
                         </form>
                         <div>
                             {t("text3")}:
                             {result3}</div>
+                            {user && (
+                            <SavePrompt
+                                user={user}
+                                model="receta"
+                                prompt={animalInput3}
+                                result={result3}
+                            />
+                        )}
                     </main>
                 </div>
             )}
 
             {selectedService === "traductor" && (
-                <div>                    
+                <div>
                     <main>
                         <h3>{t("h4")}</h3>
                         <form onSubmit={onSubmittraductor}>
@@ -249,12 +279,20 @@ export default function Servicios() {
                         <div>
                             {t("text4")}:
                             {result4}</div>
+                            {user && (
+                            <SavePrompt
+                                user={user}
+                                model="traductor"
+                                prompt={animalInput4}
+                                result={result4}
+                            />
+                        )}
                     </main>
                 </div>
             )}
 
             {selectedService === "restaurant" && (
-                <div>                    
+                <div>
                     <main>
                         <h3>{t("h5")}</h3>
                         <form onSubmit={onSubmitrest}>
@@ -265,17 +303,25 @@ export default function Servicios() {
                                 value={animalInput5}
                                 onChange={(e) => setAnimalInput5(e.target.value)}
                             />
-                            <input type="submit" value={t("gen5")}  />
+                            <input type="submit" value={t("gen5")} />
                         </form>
                         <div>
                             {t("text5")}:
                             {result5}</div>
+                            {user && (
+                            <SavePrompt
+                                user={user}
+                                model="rest"
+                                prompt={animalInput5}
+                                result={result5}
+                            />
+                        )}
                     </main>
                 </div>
             )}
 
             {selectedService === "tipo" && (
-                <div>                    
+                <div>
                     <main>
                         <h3>{t("h6")}</h3>
                         <form onSubmit={onSubmittipo}>
@@ -286,14 +332,22 @@ export default function Servicios() {
                                 value={animalInput6}
                                 onChange={(e) => setAnimalInput6(e.target.value)}
                             />
-                            <input type="submit" value={t("gen6")}  />
+                            <input type="submit" value={t("gen6")} />
                         </form>
                         <div>
                             {t("text6")}:
                             {result6}</div>
+                            {user && (
+                            <SavePrompt
+                                user={user}
+                                model="tipo"
+                                prompt={animalInput6}
+                                result={result6}
+                            />
+                        )}
                     </main>
                 </div>
-            )} 
+            )}
 
         </div>
     );
