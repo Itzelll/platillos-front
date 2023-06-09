@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
-class Receta {
-    async getReceta(data) {
+class Traductor {
+    async getTraduccion(data) {
         const configuration = new Configuration({
             apiKey: process.env.OPENAI_API_KEY,
         });
@@ -34,7 +34,7 @@ class Receta {
                 model: "text-davinci-003",
                 prompt: this.generatePrompt(animal),
                 temperature: 0.3,
-                max_tokens: 120,
+                max_tokens: 100,
                 top_p: 1.0,
                 frequency_penalty: 0.0,
                 presence_penalty: 0.0,
@@ -69,12 +69,12 @@ class Receta {
     generatePrompt(animal) {
         const capitalizedAnimal =
             animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-        return `Escribe una receta basada en este platillo:
+        return `Translate this into 1. French, 2. Spanish and 3. Japanese:\n
             
-            Platillos: ${capitalizedAnimal}
-            Receta:`;
+            ${capitalizedAnimal}\n
+            Traduccion:`;
     }
 }
 
-const instance = new Receta();
+const instance = new Traductor();
 export default instance;

@@ -1,17 +1,15 @@
 import { Configuration, OpenAIApi } from "openai";
 
-class CreateImages {
+class List {
 
-    async getImage(data) {
-        const configuration = new Configuration({
-          apiKey: process.env.OPENAI_API_KEY,
-        });
-
-        const openai = new OpenAIApi(configuration);
-        console.log(configuration);
-        console.log(data.animal);
+  async getDaVinci(data) {
+    const configuration = new Configuration({
+      apiKey: process.env.OPENAI_API_KEY,
+      });
+    const openai = new OpenAIApi(configuration);
+    console.log(configuration);
+    console.log(data.animal);
     if (!configuration.apiKey) {
-
         return {
             status:500,
             error: {
@@ -21,9 +19,7 @@ class CreateImages {
       }
     
       const animal = data.animal || '';
-      const number = Math.floor(data.n) || 1;
       if (animal.trim().length === 0) {
-
         return {
             status:400,
             error: {
@@ -33,29 +29,28 @@ class CreateImages {
       }
     
       try {
-        const completion = await openai.createImage({
-          prompt: this.generatePrompt(animal),
-          n: number,
-          size: "256x256",
+        const completion = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: this.generatePrompt(animal),
+            temperature: 0.5,
+            max_tokens: 200,
+            top_p: 1.0,
+            frequency_penalty: 0.52,
+            presence_penalty: 0.5,
+            stop: ["11."],
         });
-        const images =completion.data.data;
-        const urls =images.map((image) => image.url);
-
         return {
             status: 200,
-            result: urls
+            result: completion.data.choices[0].text
         }
       } catch(error) {
-        // Consider adjusting the error handling logic for your use case
         if (error.response) {
           console.error(error.response.status, error.response.data);
-          // res.status(error.response.status).json(error.response.data);
           return {
             status: error.response.data
           }
         } else {
           console.error(`Error with OpenAI API request: ${error.message}`);
-
          return {
             status: 500,
             error: {
@@ -64,17 +59,16 @@ class CreateImages {
          }
         }
       }
-    //return ;
   }
 
-    generatePrompt(animal, number) {
+    generatePrompt(animal) {
         const capitalizedAnimal =
         animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-        return `
-        Platillos: ${capitalizedAnimal}
+        return `"List 10 horror animes:"
+        Animal: ${capitalizedAnimal}
         Names:`;
     }
 }
-const instance = new CreateImages();
-export default instance;
 
+const instance = new List();
+export default instance;

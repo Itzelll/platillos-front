@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 
-class Receta {
-    async getReceta(data) {
+class Clasification {
+    async getTipo(data) {
         const configuration = new Configuration({
             apiKey: process.env.OPENAI_API_KEY,
         });
@@ -33,8 +33,8 @@ class Receta {
             const completion = await openai.createCompletion({
                 model: "text-davinci-003",
                 prompt: this.generatePrompt(animal),
-                temperature: 0.3,
-                max_tokens: 120,
+                temperature: 0,
+                max_tokens: 64,
                 top_p: 1.0,
                 frequency_penalty: 0.0,
                 presence_penalty: 0.0,
@@ -69,12 +69,12 @@ class Receta {
     generatePrompt(animal) {
         const capitalizedAnimal =
             animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-        return `Escribe una receta basada en este platillo:
+        return `Escribe la categoria a la que pertenecen los platillos.\n
             
-            Platillos: ${capitalizedAnimal}
-            Receta:`;
+            Platillo: ${capitalizedAnimal}\n
+            Categoria:`;
     }
 }
 
-const instance = new Receta();
+const instance = new Clasification();
 export default instance;

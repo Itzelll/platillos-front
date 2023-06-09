@@ -19,13 +19,13 @@ const Header = () => {
         <Link to="/" className="ml1 no-underline black">
           {t("home")}
         </Link>
-        <div className="ml1">|</div>
+        {/* <div className="ml1">|</div>
         <Link
           to="/create"
           className="ml1 no-underline black"
         >
           {t("new")}
-        </Link>
+        </Link> */}
 
 
         <div className="ml1">|</div>
