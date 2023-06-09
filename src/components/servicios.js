@@ -167,7 +167,7 @@ export default function Servicios() {
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="{t(placeholder1)}"
+                                placeholder={t("placeholder1")}
                                 value={animalInputt}
                                 onChange={(e) => setAnimalInputt(e.target.value)}
                             />
@@ -189,14 +189,14 @@ export default function Servicios() {
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="{t(placeholder1)}"
+                                placeholder={t("placeholder1")}
                                 value={animalInputi}
                                 onChange={(e) => setAnimalInputi(e.target.value)}
                             />
                             <input
                                 type="number"
                                 name="number"
-                                placeholder="{t(placeholder)}"
+                                placeholder={t("placeholder")}
                                 value={numberOfImages}
                                 onChange={(e) => setNumberOfImages(e.target.value)}
                             />
@@ -219,7 +219,7 @@ export default function Servicios() {
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="{t(placeholder2)}"
+                                placeholder={t("placeholder2")}
                                 value={animalInput3}
                                 onChange={(e) => setAnimalInput3(e.target.value)}
                             />
@@ -240,7 +240,7 @@ export default function Servicios() {
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="{t(placeholder1)}"
+                                placeholder={t("placeholder1")}
                                 value={animalInput4}
                                 onChange={(e) => setAnimalInput4(e.target.value)}
                             />
@@ -261,7 +261,7 @@ export default function Servicios() {
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="{t(placeholder3)}"
+                                placeholder={t("placeholder3")}
                                 value={animalInput5}
                                 onChange={(e) => setAnimalInput5(e.target.value)}
                             />
@@ -282,7 +282,7 @@ export default function Servicios() {
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="{t(placeholder3)}"
+                                placeholder={t("placeholder3")}
                                 value={animalInput6}
                                 onChange={(e) => setAnimalInput6(e.target.value)}
                             />
