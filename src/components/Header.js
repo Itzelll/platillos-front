@@ -29,8 +29,14 @@ const Header = () => {
 
 
         <div className="ml1">|</div>
-        <Link
+        {/* <Link
           to="/search"
+          className="ml1 no-underline black"
+        >
+          {t("search")}
+        </Link> */}
+        <Link
+          to="/logs"
           className="ml1 no-underline black"
         >
           {t("search")}
