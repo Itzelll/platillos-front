@@ -1,0 +1,21 @@
+{
+    "select_language": "Choisir la langue",
+    "hello_welcome_to_react": "Buongiorno principessa!, Bienvenue chez React",
+    "this_is_an_example": "Ceci est un exemple",
+    "please_enter_name": "Veuillez saisir le nom",
+    "home": "Accueil",
+    "new": "Nouveau",
+    "search": "Rechercher",
+    "title": "Plats à préparer",
+    "info": "Informations sur les plats",
+    "nombre": "Nom",
+    "tipo": "Types de plats",
+    "calorias": "Calories",
+    "proteinas": "Protéines",
+    "pais": "Pays d'origine",
+    "ingredientes": "Ingrédients",
+    "saludable": "Sain",
+    "time": "Temps de cuisson",
+    "dificultad": "Difficulté de préparation",
+    "utensilios": "Ustensiles requis"
+}
