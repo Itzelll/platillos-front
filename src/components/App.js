@@ -5,7 +5,9 @@ import Header from './Header';
 import { Route, Routes } from 'react-router-dom';
 import Login from './Login';
 import Textdavinci003 from './text-davinci-003';
+import OpenAI from './OpenAI';
 import ImageGeneration from './create-image'
+import Servicios from './servicios';
 // import { useTranslation } from 'react-i18next';
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/davinchi" element={<Textdavinci003 />} />
           <Route path="/images" element={<ImageGeneration />} />
+          <Route path="/openai" element={<OpenAI />} />
+          <Route path="/servicios" element={<Servicios />} />
         </Routes>
       </div>
     </div>

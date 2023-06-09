@@ -45,7 +45,7 @@ const Header = () => {
               {t("new")}
             </Link>
 
-            <Link
+            {/* <Link
               to="/davinchi"
               className="ml1 no-underline black"
             >|
@@ -56,6 +56,19 @@ const Header = () => {
               className="ml1 no-underline black"
             >|
               images
+            </Link> */}
+            
+            {/* <Link
+              to="/openai"
+              className='ml1 no-underline black'
+            >|
+              OpenAI
+            </Link> */}
+            <Link
+              to="/servicios"
+              className='ml1 no-underline black'
+            >|
+              Servicios
             </Link>
 
           </div>
@@ -81,14 +94,16 @@ const Header = () => {
               navigate(`/`);
             }}
           >
-            Logout
+            <button className='pinterest-btn pinterest-btn--black'>
+              Logout</button>
           </div>
         ) : (
           <Link
             to="/login"
             className="ml1 no-underline black"
           >
-            Login
+            <button className='pinterest-btn pinterest-btn--black'>
+              Login</button>
           </Link>
         )}
 
