@@ -68,7 +68,7 @@ const Header = () => {
               to="/servicios"
               className='ml1 no-underline black'
             >|
-              Servicios
+              {t("servicios")}
             </Link>
 
           </div>
