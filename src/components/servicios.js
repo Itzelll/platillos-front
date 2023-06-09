@@ -5,8 +5,10 @@ import Receta from "../services/service.recipe"
 import Traductor from "../services/service.traductor"
 import Restaurant from "../services/service.restaurant"
 import Clasification from "../services/service.clasification"
+import { useTranslation } from 'react-i18next';
 
 export default function Servicios() {
+    const { t } = useTranslation();
     const [selectedService, setSelectedService] = useState(null);
 
     const [animalInputt, setAnimalInputt] = useState("");
@@ -32,7 +34,6 @@ export default function Servicios() {
         event.preventDefault();
         try {
             const response = await CreateImages.getImage({ animal: animalInputi, n: numberOfImages });
-
 
             const data = await response;
             console.log(response);
@@ -150,33 +151,30 @@ export default function Servicios() {
     };
 
     return (
-        <div>
-            <button className="boton-ia" onClick={() => setSelectedService("image")}>Generador de imágenes</button>
-            <button className="boton-ia" onClick={() => setSelectedService("text")}>Generador de nombres</button>
-            <button className="boton-ia" onClick={() => setSelectedService("recipe")}>Generador de recetas</button>
-            <button className="boton-ia" onClick={() => setSelectedService("traductor")}>Traductor de recetas</button>
-            <button className="boton-ia" onClick={() => setSelectedService("restaurant")}>Reviews de restaurantes</button>
-            <button className="boton-ia" onClick={() => setSelectedService("tipo")}>Clasificaciones</button>
+        <div>            
+            <button className="boton-ia" onClick={() => setSelectedService("text")}>{t("gen2")}</button>
+            <button className="boton-ia" onClick={() => setSelectedService("image")}>{t("gen1")}</button>
+            <button className="boton-ia" onClick={() => setSelectedService("recipe")}>{t("gen3")}</button>
+            <button className="boton-ia" onClick={() => setSelectedService("traductor")}>{t("gen4")}</button>
+            <button className="boton-ia" onClick={() => setSelectedService("restaurant")}>{t("gen5")}</button>
+            <button className="boton-ia" onClick={() => setSelectedService("tipo")}>{t("gen6")}</button>
 
             {selectedService === "text" && (
                 <div>
-                    <title>OpenAI Quickstart</title>
-                    <link rel="icon" href="/dog.png" />
-
                     <main>
-                        <h3>Ingredientes de un platillo</h3>
+                        <h3>{t("h1")}</h3>
                         <form onSubmit={onSubmittext}>
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="Enter a platillo"
+                                placeholder="{t(placeholder1)}"
                                 value={animalInputt}
                                 onChange={(e) => setAnimalInputt(e.target.value)}
                             />
-                            <input type="submit" value="Generate names" />
+                            <input type="submit" value={t("gen1")} />
                         </form>
                         <div>
-                            Ingredients:
+                            {t("text1")}:
                             {resultt}</div>
                     </main>
                 </div>
@@ -184,28 +182,25 @@ export default function Servicios() {
 
             {selectedService === "image" && (
                 <div>
-                    <title>OpenAI Quickstart</title>
-                    <link rel="icon" href="/dog.png" />
-
                     <main>
                         <img src="" alt="" />
-                        <h3>Imagenes de platillos</h3>
+                        <h3>{t("h2")}</h3>
                         <form onSubmit={onSubmitimg}>
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="Enter a platillo"
+                                placeholder="{t(placeholder1)}"
                                 value={animalInputi}
                                 onChange={(e) => setAnimalInputi(e.target.value)}
                             />
                             <input
                                 type="number"
                                 name="number"
-                                placeholder="Enter a number de images"
+                                placeholder="{t(placeholder)}"
                                 value={numberOfImages}
                                 onChange={(e) => setNumberOfImages(e.target.value)}
                             />
-                            <input type="submit" value="Generate images" />
+                            <input type="submit" value={t("gen2")}  />
                         </form>
                         <div>
                             {resulti && resulti.map((url) => (
@@ -217,92 +212,84 @@ export default function Servicios() {
             )}
 
             {selectedService === "recipe" && (
-                <div>
-                    <title>OpenAI Quickstart</title>
-
+                <div>                    
                     <main>
-                        <h3>Creador de recetas</h3>
+                        <h3>{t("h3")}</h3>
                         <form onSubmit={onSubmitrecipe}>
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="Agrega ingredientes"
+                                placeholder="{t(placeholder2)}"
                                 value={animalInput3}
                                 onChange={(e) => setAnimalInput3(e.target.value)}
                             />
-                            <input type="submit" value="Generate" />
+                            <input type="submit" value={t("gen3")}  />
                         </form>
                         <div>
-                            Receta:
+                            {t("text3")}:
                             {result3}</div>
                     </main>
                 </div>
             )}
 
             {selectedService === "traductor" && (
-                <div>
-                    <title>OpenAI Quickstart</title>
-
+                <div>                    
                     <main>
-                        <h3>Traductor de platillos</h3>
+                        <h3>{t("h4")}</h3>
                         <form onSubmit={onSubmittraductor}>
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="Agrega una comida"
+                                placeholder="{t(placeholder1)}"
                                 value={animalInput4}
                                 onChange={(e) => setAnimalInput4(e.target.value)}
                             />
-                            <input type="submit" value="Generate" />
+                            <input type="submit" value={t("gen4")} />
                         </form>
                         <div>
-                            Traduccion:
+                            {t("text4")}:
                             {result4}</div>
                     </main>
                 </div>
             )}
 
             {selectedService === "restaurant" && (
-                <div>
-                    <title>OpenAI Quickstart</title>
-
+                <div>                    
                     <main>
-                        <h3>Review de restaurantes</h3>
+                        <h3>{t("h5")}</h3>
                         <form onSubmit={onSubmitrest}>
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="Agrega unas notas"
+                                placeholder="{t(placeholder3)}"
                                 value={animalInput5}
                                 onChange={(e) => setAnimalInput5(e.target.value)}
                             />
-                            <input type="submit" value="Generate" />
+                            <input type="submit" value={t("gen5")}  />
                         </form>
                         <div>
-                            Review:
+                            {t("text5")}:
                             {result5}</div>
                     </main>
                 </div>
             )}
 
             {selectedService === "tipo" && (
-                <div>
-                    <title>OpenAI Quickstart</title>
-
+                <div>                    
                     <main>
-                        <h3>Tipo de clasificaciones</h3>
+                        <h3>{t("h6")}</h3>
                         <form onSubmit={onSubmittipo}>
                             <input
                                 type="text"
                                 name="animal"
-                                placeholder="Agrega unas notas"
+                                placeholder="{t(placeholder3)}"
                                 value={animalInput6}
                                 onChange={(e) => setAnimalInput6(e.target.value)}
                             />
-                            <input type="submit" value="Generate" />
+                            <input type="submit" value={t("gen6")}  />
                         </form>
                         <div>
-                            Clasificacion:
+                            {t("text6")}:
                             {result6}</div>
                     </main>
                 </div>
