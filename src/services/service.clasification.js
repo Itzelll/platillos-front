@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from "openai";
 class Clasification {
     async getTipo(data) {
         const configuration = new Configuration({
-            apiKey: process.env.OPENAI_API_KEY,
+            apiKey: process.env.envkey_NG_APP_KEY,
         });
         const openai = new OpenAIApi(configuration);
         console.log(configuration);
